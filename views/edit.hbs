@@ -1,0 +1,12 @@
+<form action="/records/{{record._id}}?_method=PUT" method="POST">
+<label for="name">項目</label>   
+<input type="text" name='name' id='name' placeholder="name" value="{{record.name}}">
+<label for="date">時間</label>   
+<input type="text" name='date' id='date' placeholder="date" value="{{record.date}}">
+<label for="category">分類</label>   
+<input type="text" name='category' id='category' placeholder="category" value="{{record.category}}">
+<label for="amount">金額</label>   
+<input type="text" name='amount' id='amount' placeholder="amount" value="{{record.amount}}">
+<button type="submit">Save</button>
+<a href="/">返回首頁</a>
+</form>

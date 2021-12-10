@@ -1,12 +1,12 @@
 <form action="/users/register" method="POST">
 <label for="name">姓名</label>   
-<input type="text" name='name' id='name' placeholder="Enter your name" >
+<input type="text" name='name' id='name' placeholder="Enter your name" value="{{name}}">
 <label for="email">Email</label>   
-<input type="text" name='email' id='datemaile' placeholder="Enter your email" >
+<input type="text" name='email' id='datemaile' placeholder="Enter your email" value="{{email}}">
 <label for="password">Password</label>   
-<input type="text" name='password' id='password' placeholder="enter your password" >
+<input type="text" name='password' id='password' placeholder="enter your password" value="{{password}}">
 <label for="confirmPassword">Confirm Password</label>   
-<input type="text" name='confirmPassword' id='confirmPassword' placeholder="confirmPassword" >
+<input type="text" name='confirmPassword' id='confirmPassword' placeholder="confirmPassword" value="{{confirmPassword}}">
 <button type="submit">註冊
 </button>
 <a href="/users/login">Login</a>

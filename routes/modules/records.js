@@ -14,15 +14,6 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.get('/:id', (req, res) => {
-    const userId = req.user._id
-    const _id = req.params.id
-    return  Record.findOne({ _id, userId })
-    .lean()
-    .then(record => res.render('detail', { record }))
-    .catch(error => console.log(error))
-})
-
 router.get('/:id/edit', (req, res) => {
     const userId = req.user._id
     const _id = req.params.id

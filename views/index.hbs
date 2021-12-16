@@ -1,13 +1,51 @@
-<a href="/records/new">create</a>
-<ul>
-{{#each records}}
-<li>
-    {{this.name}}
-</li>
-<a href="/records/{{this._id}}">detail</a>
-<a href="/records/{{this._id}}/edit">edit</a>
-<form action="/records/{{this._id}}?_method=DELETE" method="POST">
-<button type="submit">delete</button>
-</form>
-{{/each}}
-</ul>
+
+
+<!-- 總金額 -->
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center col-10">
+    <h4 class="mr-5 font-weight-bold" style="color: black; font-size: 2em">總支出金額 :</h4>
+    <h2 class="ml-5" style="font-size: 4em;">{{totalAmount}}</h2>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <form class="" action="/filter" method="GET">
+      <div class="form-group">
+        <select class="form-control btn btn-primary mt-5" name="category" id="category" onchange="this.form.submit()">
+          <option value="" selected disabled>選擇支出類別 :</option>
+          {{#each category}}
+          <option value="{{ this.category }}" {{#if this.isSelected }} selected {{/if}}>{{ this.category_cn }}</option>
+          {{/each}}
+        </select>
+      </div>
+    </form>
+  </div>
+    <a href="/records/new" class="btn btn-primary">新增項目</a>
+  <div class="row mx-auto col-8">
+    <ul class="list-group">
+      {{#each records}}
+      <div class="record mb-3">
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="col-1 my-0  d-flex align-items-center" style="color:black">
+            <i class="{{ this.icon }} fa-4x"></i>
+          </div>
+          <div class="record-detail col-8 ml-5 mt-2 px-auto">
+            <h4 class="record-title font-weight-bold">{{ this.name }}</h4>
+            <p class="record-date font-weight-bold">{{ this.date }}</p>
+          </div>
+
+          <div class="record-amount col-3 d-flex align-items-center">
+            <p class="font-weight-bold"><span>{{ this.amount }}</span>元</p>
+          </div>
+
+          <div class="record-button col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-info" href="/records/{{ this._id}}/edit" type="submit">修改</a>
+            <form action="/records/{{ this._id }}/?_method=DELETE" method="POST" class="ml-2">
+              <button class="btn btn-danger" type="submit">刪除</button>
+            </form>
+          </div>
+        </li>
+      </div>
+      {{/each}}
+    </ul>
+
+  </div>

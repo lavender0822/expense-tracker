@@ -6,7 +6,7 @@ const flash = require('connect-flash')
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
-  }
+}
 
 const router = require('./routes')
 
@@ -17,7 +17,12 @@ const app = express();
 
 const PORT = process.env.PORT
 
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.engine('hbs', exphbs({
+    defaultLayout: 'main',
+    extname: '.hbs',
+    helpers: require('./config/helpers')
+}))
+
 app.set('view engine', 'hbs');
 
 app.use(session({
@@ -35,7 +40,7 @@ app.use(flash())
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.isAuthenticated()
     res.locals.user = req.user
-    res.locals.success_msg = req.flash('success_msg')  
+    res.locals.success_msg = req.flash('success_msg')
     res.locals.warning_msg = req.flash('warning_msg')
     next()
 })

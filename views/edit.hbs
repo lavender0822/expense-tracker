@@ -1,48 +1,41 @@
+<div class="row mt-5 h4">
+  <div class="text-center col-md-6 mt-3 m-auto">*必填欄位
+    <div class="col-md-6 mt-5 m-auto">請輸入你的支出</div>
+  </div>
+</div>
 
 <div class="row mt-5">
-    <div class="col-md-6 m-auto">
-        <div class="card card-body">
-            <h1 class="mb-1 restaurant-show-title">新增帳目</h1>
-            <div class="container">
-                <form action="/records/{{record._id}}?_method=PUT" method="POST">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">項目<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name" placeholder="午餐" name="name"  value="{{record.name}}" required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="date" class="form-label">時間<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="date" placeholder="2021/01/01" name="date" value="{{record.date}}"
-                            required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="category" class="form-label">分類<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="category" placeholder="家居物業" list="categoryOptions"
-                            name="category"  value="{{record.category}}" required />
-                        <datalist id="categoryOptions">
-                            <option>家居物業</option>
-                            <option>交通出行</option>
-                            <option>休閒娛樂</option>
-                            <option>餐飲食品</option>
-                            <option>其他</option>
-                        </datalist>
-                    </div>
-                    <div class="mb-3">
-                        <label for="amount" class="form-label">金額<span class="text-danger">*</span></label>
-                        <input type="tel" class="form-control" id="amount" placeholder="5000" name="amount"  value="{{record.amount}}" required />
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">
-                            更改項目
-                        </button>
-                        <a href="/">
-                            <button type="button" class="btn btn-outline-secondary">
-                                返回首頁
-                            </button>
-                        </a>
-                        <button type="reset" class="btn btn-outline-danger">恢復原樣</button>
-                    </div>
-                </form>
-            </div>
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <form action="/records/{{ record._id }}?_method=PUT" method="POST">
+        <div class="form-group h4">
+          <label for="name" class="col-md-2">名稱<span class="text-danger">*</span></label>
+          <input type="text" id="name" name="name" value="{{ record.name }}" required>
         </div>
+        <div class="form-group h4">
+          <label for="date" class="col-md-2">日期<span class="text-danger">*</span></label>
+          <input type="date" name="date" id="date" value="{{ record.date }}" required>
+        </div>
+        <div class="form-group h4">
+          <label for="category" class="col-md-2">類別<span class="text-danger">*</span></label>
+          <select id="category" placeholder="請選擇類別" name="category" required>
+            <option selected>請選擇類別</option>
+            {{#each categoryList}}
+            <option {{#if (eq this ../record.category)}} selected {{/if}}>{{this}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="form-group h4">
+          <label for="amount" class="col-md-2">金錢<span class="text-danger">*</span></label>
+          <input type="number" name="amount" id="amount" min="0" step="1" value="{{ record.amount }}" required>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <button class="btn btn-info" type="submit">儲存</button>
+            <a href="/" class="btn btn-info m-1">上一頁</a>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </div>

@@ -21,7 +21,7 @@
 ## 安裝
 - git clone  此專案
 ```
-git clone https://github.com/chenchiachi/expense-tracker.git
+git clone https://github.com/lavender0822/expense-tracker.git
 ```
 - cd 至專案資料夾
 - 安裝 npm 套件

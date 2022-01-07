@@ -3,8 +3,6 @@ const router = express.Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
 
-
-//  新增
 router.get('/new', (req, res) => {
   Category.find()
     .lean()
@@ -28,7 +26,7 @@ router.post('/new', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
-//  修改
+
 router.get('/:id/edit', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
@@ -42,6 +40,7 @@ router.get('/:id/edit', (req, res) => {
     .lean()
     .then((record) => res.render('edit', { record, categoryList }))
 })
+
 router.put('/:id/', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
@@ -60,7 +59,7 @@ router.put('/:id/', (req, res) => {
         .catch(error => console.log(error))
     })
 })
-//  刪除
+
 router.delete('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id

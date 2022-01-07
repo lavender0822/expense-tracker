@@ -1,0 +1,81 @@
+{
+  "categorySeeds": [
+    {
+      "name": "home",
+      "name_cn": "家居物業",
+      "categoryIcon": "fas fa-home"
+      
+    },
+    {
+      "name": "transportation",
+      "name_cn": "交通出行",
+      "categoryIcon": "fas fa-shuttle-van"
+    },
+    {
+      "name": "entertainment",
+      "name_cn": "休閒娛樂",
+      "categoryIcon": "fas fa-grin-beam"
+    },
+    {
+      "name": "food",
+      "name_cn": "餐飲食品",
+      "categoryIcon": "fas fa-utensils"
+    },
+    {
+      "name": "else",
+      "name_cn": "其他",
+      "categoryIcon": "fas fa-pen"
+    }
+  ],
+  "userSeeds": [
+    {
+      "name": "root",
+      "email": "root@example.com",
+      "password": "12345678",
+      "recordListIndex": [0, 1, 2]
+    },
+    {
+      "name": "user",
+      "email": "user@example.com",
+      "password": "12345678",
+      "recordListIndex": [3,4]
+    }
+  ],
+  "recordSeeds": [
+    {
+      "id": 1,
+      "name": "午餐",
+      "date": "2021-11-01",
+      "amount": 60,
+      "category": "餐飲食品"
+    },
+    {
+      "id": 2,
+      "name": "晚餐",
+      "date": "2021-11-01",
+      "amount": 60,
+      "category": "餐飲食品"
+    },
+    {
+      "id": 3,
+      "name": "捷運",
+      "date": "2021-11-01",
+      "amount": 120,
+      "category": "交通出行"
+    },
+    {
+      "id": 4,
+      "name": "電影：驚奇隊長",
+      "date": "2021-11-02",
+      "amount": 220,
+      "category": "休閒娛樂"
+    },
+    {
+      "id": 5,
+      "name": "租金",
+      "date": "2021-11-02",
+      "amount": 25000,
+      "category": "家居物業"
+    }
+  ]
+}

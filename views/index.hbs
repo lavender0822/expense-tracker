@@ -1,12 +1,10 @@
-
-
 <!-- 總金額 -->
 <div class="container mt-5">
   <div class="row d-flex justify-content-center col-10">
     <h4 class="mr-5 font-weight-bold" style="color: black; font-size: 2em">總支出金額 :</h4>
     <h2 class="ml-5" style="font-size: 4em;">{{totalAmount records}}</h2>
   </div>
-   <div class="form-group justify-content-center">
+  <div class="form-group justify-content-center">
     <form action="/filter" id="filter" onchange="filter.submit()">
       <select class="form-control" id="category" name="category">
         <option value="all" {{{eq category 'all' }}}>全部</option>
@@ -18,7 +16,7 @@
       </select>
     </form>
   </div>
-    <a href="/records/new" class="btn btn-primary">新增項目</a>
+  <a href="/records/new" class="btn btn-primary">新增項目</a>
   <div class="row mx-auto col-8">
     <ul class="list-group">
       {{#each records}}
